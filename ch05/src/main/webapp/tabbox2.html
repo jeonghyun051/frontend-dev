@@ -45,18 +45,19 @@ body	{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 // DOM Level 1 Event 처리: element의 event attribute 사용하는 방식
 // 2) JavaScipt code(DOM API)로만 작성하기
 
-var liSelected = null; 
 var onTabClicked = function() {
-	this.className = "selected";   // selected
-	if(liSelected != null) {       // unselected 
-		liSelected.className = ""; 
-	}
-	liSelected = this;
+	// unselected
+	var lisSelected = document.getElementsByClassName("selected");
+	(lisSelected.length == 1) && (lisSelected[0].className = "");
+
+	// selected
+	this.className = "selected";  
 };
 
  
 window.onload = function() {
 	var divTabBox = document.getElementsByClassName("tab-box")[0];
+	console.log(2,divTabBox);
 	console.log(divTabBox.childNodes);
 	
 	var ul = divTabBox.childNodes[1];
