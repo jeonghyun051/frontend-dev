@@ -4,30 +4,29 @@
 <meta charset="utf-8">
 <title>리스트를 이용한 메뉴 만들기</title>
 <style type="text/css">
-* { margin:0; padding:0 }
-ul, ol { list-style-type:none }
-body { font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
+*		{ margin:0; padding:0 }
+ul, ol 	{ list-style-type: none }		
+body	{ font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 
-.tab-box { 
+.tab-box {
 	width:520px;
 	margin:50px auto 0;
 }
 
 .tab-box ul {
 	height: 24px;
-
 }
 
 .tab-box li {
-	cursor: pointer;
 	float: right;
-	border: 1px solid #999;
+	cursor: pointer;
 	width: 100px;
 	line-height: 22px;
+	border: 1px solid #999;
+	border-radius: 10px 10px 0 0;
 	background-color: #ccc;
 	text-align: center;
-	margin-right: 2px;
-	border-radius: 10px 10px 0 0;
+	margin-right: 2px; 
 }
 
 .tab-box li.selected {
@@ -43,42 +42,40 @@ body { font-family: '맑은 고딕' 돋움; font-size:0.75em; color:#333 }
 }
 </style>
 <script>
-// DOM Level 1 Event 처리 : element의 event attribute 사용
-// 1) HTML Tag에 바로 적용하기
-liSelected = null;
-var onTabClicked  = function(){
-	this.className = "selected";
-	li.className = "selected"; // selected
-	if(liSelected == null){
-		liSelected.className = "";
+// DOM Level 1 Event 처리: element의 event attribute 사용하는 방식
+// 2) JavaScipt code(DOM API)로만 작성하기
+
+var liSelected = null; 
+var onTabClicked = function() {
+	this.className = "selected";   // selected
+	if(liSelected != null) {       // unselected 
+		liSelected.className = ""; 
 	}
 	liSelected = this;
-	
 };
 
-window.onload() = function(){
+ 
+window.onload = function() {
 	var divTabBox = document.getElementsByClassName("tab-box")[0];
 	console.log(divTabBox.childNodes);
 	
-	var ulTabs = divTabBox.childNodes[1];
-	var liTabs = ulTabs.getElementsByTagName('li');
+	var ul = divTabBox.childNodes[1];
+	var liTabs = ul.getElementsByTagName("li");
 	
 	for(var i = 0; i < liTabs.length; i++){
 		liTabs[i].onclick = onTabClicked;
 	}
-	console.log(3,liTabs);
 }
-
 </script>
 </head>
 <body>
 <div class="tab-box">
 	<ul>
-        <li>메뉴 5</li>
-        <li>메뉴 4</li>
-        <li>메뉴 3</li>
-        <li>메뉴 2</li>
-        <li>메뉴 1</li>
+        <li>메뉴5</li>
+        <li>메뉴4</li>
+        <li>메뉴3</li>
+        <li>메뉴2</li>
+        <li>메뉴1</li>
     </ul>
     <div>
     	탭뷰입니다.
