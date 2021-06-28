@@ -10,10 +10,10 @@
 - [객체] object type
 1. new 생성자함수() 사용해서 생성
     Number()           -> object type 객체 생성
-    String()              -> object type 객체 생성
-    Boolean()           -> object type 객체 생성
-    Object()             -> object type 객체 생성
-    Array()               -> object type 객체 생성
+    String()           -> object type 객체 생성
+    Boolean()          -> object type 객체 생성
+    Object()           -> object type 객체 생성
+    Array()            -> object type 객체 생성
 
 2. null
 3. []배열
