@@ -39,3 +39,5 @@ console.log("==================")
 // 엄격하게 형변환을 해서 두 피연산자의 타입을 맞춰준다.
 var str = "5";
 console.log(parseInt(str) == 5); // true 
+
+
