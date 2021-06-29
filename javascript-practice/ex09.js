@@ -18,6 +18,9 @@ MyObject.prototype.info = function(){
         this.course);
 }
 
+console.log(typeof(Object.prototype))
+console.log(typeof(Number.prototype))
+
 // MyObject 객체 생성1
 // var o1 = new MyObject("둘리",10);
 // console.log(o1.school);
