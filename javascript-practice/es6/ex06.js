@@ -109,3 +109,5 @@ console.log("Colors of Rainbow:", ...rainbow);
 // s = f('red', 'orange', 'yellow');
 s = ((...colors) => colors.join(":"))('red', 'orange', 'yellow');
 console.log(s);
+
+console.log();
