@@ -7,6 +7,7 @@
 window.addEventListener("load", function(){
 	let html = "<h1>Hello DOM</h1>";
 	
+	console.log(document.body); // body 코드 전부가 나옴
 	setTimeout(function(){
 		document.body.innerHTML += html;
 	}, 3000);
