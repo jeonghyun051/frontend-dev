@@ -3,7 +3,6 @@
  * 
  */
  
-
 // ex1 - basic
 const user = {
     firstName: "둘",
