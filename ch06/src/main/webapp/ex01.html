@@ -11,22 +11,33 @@ for(props in window) {
 console.log(s)
 
 //팝업창
-setTimeout(function (){
+setTimeout(() => {
 	var popup = window.open("popup.html","popup","width=600, height=300");
 	
 	setTimeout(() => {
 		// popup 문서의 내용 바꾸기
+		// 보안 문제(Cross Domain) 때문에 같은 도메인에서만 가능
 		popup.document.write("<h1>popup text changed</h1>")	
 	}, 2000);
+	console.log("1st timeout handler---end");
 	
-},2000);
+	setTimeout(() => {
+		
+		popup.moveTo(200,200);
+	}, 6000);
+
+	setTimeout(() => {
+		// 자식창의 JS 실행	
+		popup.message();
+	}, 8000);
+},4000);
 
 
 
 </script>
 </head>
 <body>
-	<h1>DOM(Browser Object Model) - window, screen, location, navigator</h1>
+	<h1>BOM(Browser Object Model) - window, screen, location, navigator</h1>
 	<h2>1. Window 전역객체(Global Object, Environment, Variable Object)</h2>
 	<ul>
 		<li>자바스크립트가 브라우저창(Window)을 제어하기 위한 객체(새 창 만들기, 창 옮기기 등)</li>
