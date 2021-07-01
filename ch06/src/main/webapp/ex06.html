@@ -5,9 +5,13 @@
 <title>Insert title here</title>
 <script>
 window.addEventListener("load", function(){
+	// create a new h1 element
 	const h1Element = document.createElement("h1");
+	
+	// and give it some content
 	const textNode = document.createTextNode('Hello DOM');
 	
+	// add the text node to the newly created div
 	h1Element.append(textNode);
 	
 	setTimeout(function(){
