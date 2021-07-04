@@ -8,12 +8,11 @@ const power = function (x) {
 
 let numbers = [1, 2, 3, 4, 5];
 numbers.forEach(function (numbers) {
-    process.stdout.write(`${numbers}:${power(numbers)}\t`);
+    process.stdout.write(`${numbers}:${power(numbers)}\t`); // 1:1 2:4 3:9 4:16 5:25
 });
 
 
 // ex 1
-
 console.log();
 numbers.forEach(function (numbers) {
     process.stdout.write(`${numbers}:${(x => x * x)(numbers)}\t`);
@@ -36,7 +35,7 @@ numbers.forEach(n => process.stdout.write(`${n}:${(x => x * x)}`))
 console.log("\n---");
 [5, 3, 15, 1045, 43, 92].forEach(e => {
     if(e % 5 == 0){
-        process.stdout.write(`${e}\t`);
+        process.stdout.write(`${e}\t`); // 5 15 1045
     }
 });
 
@@ -49,7 +48,7 @@ const dooly = {
         console.log(this); // this : 객체 둘리를 카리킴
         this.friends.forEach(f => {
            console.log(`${this.name}의 친구 ${f}`); // this : 둘리 아님, 화살표를 쓰면 보이는대로 원하던 this임
-        });
+        }); // 둘리의 친구 또치, 둘리의 친구 마이콜 ···
     }
 }
 dooly.printFriends();
@@ -60,7 +59,7 @@ numbers.forEach(
         let result = (x=>{
             return x*x;
         })(numbers);
-        process.stdout.write(`${numbers}:${result }\t`);
+        process.stdout.write(`${numbers}:${result }\t`);    // 1:1 2:4 3:9 4:16 5:25
     }
 );
 
@@ -76,7 +75,6 @@ const power2 = x=> x*x;
 console.log();
 numbers.forEach(
     function (numbers) {
-        let result = (x=>x*x)(numbers);
         process.stdout.write(`${numbers}:${power2(numbers) }\t`);
     }
 );
