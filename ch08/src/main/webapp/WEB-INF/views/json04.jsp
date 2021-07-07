@@ -29,6 +29,7 @@ $(function(){
 				html += ("<h4>" + response.data.no + "</h4>");
 				html += ("<h5>" + response.data.name + "</h5>");
 				html += ("<p>" + response.data.message + "</p>");
+				console.log("html:",html);
 				$("#data").append(html);				
 			}
 		});
