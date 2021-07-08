@@ -6,8 +6,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="${pageContext.request.contextPath }/jquery/jquery-3.6.0.js" type="text/javascript"></script>
+<script src="${pageContext.request.contextPath }/ejs/ejs.js" type="text/javascript"></script>
 <script>
-var render = function(vo,mode){
+/* var render = function(vo,mode){
 	html =
 		"<li data-no='"+ vo.no +"'>" +
 			"<strong>"+ vo.name + "</strong>" +
@@ -19,22 +20,27 @@ var render = function(vo,mode){
 	} else{
 		$("#list-guestbook").prepend(html);
 	}
-}
+} */
+
+var listEJS = new EJS({
+	url: "${pageContext.request.contextPath }/ejs/list-template.ejs"
+});
 
 var fetch = function(){
-	$("#btn-fetch").click(function(){
-		$.ajax({
-			url: "${pageContext.request.contextPath }/guestbook/api/list",
-			dataType: "json",  // 받을 때 포맷
-			type: "get",      // 요청 method  
-			success: function(response){
-				response.data.forEach(function(e)){
-					render(e,true);
-				});
-			}
-		});
-	})
+	$.ajax({
+		url: "${pageContext.request.contextPath }/guestbook/api/list",
+		dataType: "json",
+		type: "get",
+		success: function(response){
+			// response.data.forEach(function(e){
+			//	render(e, true);
+			// });
+			var html = listEJS.render(response);
+			$("#list-guestbook").append(html);
+		}
+	});	
 }
+
 $(function(){
 	$("#btn-fetch").click(function(){
 		fetch();
